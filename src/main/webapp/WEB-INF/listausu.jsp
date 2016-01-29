@@ -6,7 +6,9 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="CSS/estilo.css">
 	<title>Lista de usuários</title>
+	 
 	<script type="text/javascript">
 	function confirmaExclusao(id){
 		if(window.confirm("Tem certeza que deseja exluir?")){
@@ -17,18 +19,18 @@
 </head>
 <body>
 	<% 	List<Usuario> lista =  (List<Usuario>)request.getAttribute("lista"); %>
-	<table border="1" bordercolor=blue>
+	<table>
 		<tr>
-		<th>Id</th>
-		<th>Nome</th>
-		<th colspan="2">Ação</th>
+		<th class="centro">Id</th>
+		<th class="esquerda">Nome</th>
+		<th class="centro" colspan="2">Ação</th>
 		</tr>
 	<% for(Usuario u :lista){ %>
 		<tr>
-		<td><% out.print(u.getId()); %> </td>
+		<td class="centro"><% out.print(u.getId()); %> </td>
 		<td><%=u.getNome() %> </td>
-		<td><a href="javascript:confirmaExclusao(<%=u.getId()%>)">Excluir</a></td>
-		<td><a href="usucontroller.do?acao=alterar&id=<%=u.getId()%>">Editar</a></td>
+		<td class="centro"><a href="javascript:confirmaExclusao(<%=u.getId()%>)">Excluir</a></td>
+		<td class="centro"><a href="usucontroller.do?acao=alterar&id=<%=u.getId()%>">Editar</a></td>
 		</tr>
 	<% }%>	
 	</table>	
